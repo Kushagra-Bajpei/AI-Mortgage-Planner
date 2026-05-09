@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Eye, EyeOff, Sparkles, AlertCircle, Loader, Check } from 'lucide-react';
+import { Eye, EyeOff, Landmark, AlertCircle, Loader, Check } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 import { useAuth } from '../hooks/useAuth';
 
@@ -73,8 +73,8 @@ export default function Signup() {
   return (
     <div className={`min-h-screen flex items-center justify-center p-4 py-12 relative overflow-hidden ${dark ? 'bg-[#0a0a0f]' : 'bg-slate-50'}`}>
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-violet-600/15 blur-[80px]" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-cyan-500/10 blur-[80px]" />
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-emerald-600/15 blur-[80px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-amber-500/10 blur-[80px]" />
       </div>
 
       <motion.div
@@ -84,15 +84,15 @@ export default function Signup() {
         className={`relative w-full max-w-md rounded-3xl border p-8 sm:p-10 ${dark ? 'bg-[#12121a] border-white/10' : 'bg-white border-slate-200 shadow-xl'}`}
       >
         <div className="flex items-center gap-2 mb-8">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-cyan-400 flex items-center justify-center shadow-[0_0_20px_rgba(124,58,237,0.4)]">
-            <Sparkles className="w-5 h-5 text-white" />
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-600 to-amber-500 flex items-center justify-center shadow-[0_0_20px_rgba(5,150,105,0.4)]">
+            <Landmark className="w-5 h-5 text-white" />
           </div>
-          <span className="font-display font-bold text-xl gradient-text">QuickRaina</span>
+          <span className="font-display font-bold text-xl gradient-text">MortgageAI</span>
         </div>
 
         <h1 className={`font-display text-3xl font-bold mb-2 ${dark ? 'text-white' : 'text-slate-900'}`}>Create your account</h1>
         <p className={`text-sm mb-8 ${dark ? 'text-slate-400' : 'text-slate-600'}`}>
-          Join thousands of dreamers visualizing the impossible.
+          Join thousands of homebuyers planning smarter loans.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -155,9 +155,9 @@ export default function Signup() {
               </button>
               <span className={`text-xs ${dark ? 'text-slate-400' : 'text-slate-600'}`}>
                 I agree to the{' '}
-                <Link to="#" className="text-violet-400 hover:text-violet-300">Terms of Service</Link>
+                <Link to="#" className="text-emerald-500 hover:text-emerald-400">Terms of Service</Link>
                 {' '}and{' '}
-                <Link to="#" className="text-violet-400 hover:text-violet-300">Privacy Policy</Link>
+                <Link to="#" className="text-emerald-500 hover:text-emerald-400">Privacy Policy</Link>
               </span>
             </label>
             {errors.agreed && <div className="flex items-center gap-1 mt-1.5 text-red-400 text-xs"><AlertCircle className="w-3 h-3" />{errors.agreed}</div>}
@@ -169,7 +169,7 @@ export default function Signup() {
             disabled={loading}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-semibold hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] transition-all duration-300 disabled:opacity-60"
+            className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-gradient-to-r from-emerald-600 to-amber-500 text-white font-semibold hover:shadow-[0_0_30px_rgba(5,150,105,0.4)] transition-all duration-300 disabled:opacity-60"
           >
             {loading ? <><Loader className="w-4 h-4 animate-spin" />Creating Account...</> : 'Create Account — Free'}
           </motion.button>
@@ -177,7 +177,7 @@ export default function Signup() {
 
         <p className={`text-center text-sm mt-6 ${dark ? 'text-slate-500' : 'text-slate-500'}`}>
           Already have an account?{' '}
-          <Link to="/login" className="text-violet-400 font-semibold hover:text-violet-300 transition-colors">Sign in</Link>
+          <Link to="/login" className="text-emerald-500 font-semibold hover:text-emerald-400 transition-colors">Sign in</Link>
         </p>
 
         <Link to="/" className={`block text-center text-xs mt-4 ${dark ? 'text-slate-600 hover:text-slate-400' : 'text-slate-400 hover:text-slate-600'} transition-colors`}>

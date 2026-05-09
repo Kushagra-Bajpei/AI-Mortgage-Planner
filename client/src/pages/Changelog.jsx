@@ -1,4 +1,4 @@
-import { Sparkles, Zap, Shield, Bug } from 'lucide-react';
+import { Landmark, Zap, Shield, Bug } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 import { FadeIn, StaggerChildren, StaggerItem } from '../components/AnimationWrappers';
 import PublicLayout from '../layouts/PublicLayout';
@@ -10,8 +10,8 @@ const releases = [
     label: 'Latest',
     labelColor: 'text-violet-400 bg-violet-500/10 border-violet-500/20',
     changes: [
-      { type: 'feature', icon: Sparkles, text: 'Multi-scene dream visualization — chain multiple dream moments into a visual narrative.' },
-      { type: 'feature', icon: Sparkles, text: 'New "Emotion Map" view — see the emotional arc of your dream at a glance.' },
+      { type: 'feature', icon: Landmark, text: 'Multi-scene dream visualization — chain multiple dream moments into a visual narrative.' },
+      { type: 'feature', icon: Landmark, text: 'New "Emotion Map" view — see the emotional arc of your dream at a glance.' },
       { type: 'improvement', icon: Zap, text: 'Reduced average generation time from 2.1s to 1.4s with updated inference pipeline.' },
       { type: 'fix', icon: Bug, text: 'Fixed an issue where the chat history would not persist after page refresh.' },
     ],
@@ -21,8 +21,8 @@ const releases = [
     date: 'March 28, 2026',
     label: null,
     changes: [
-      { type: 'feature', icon: Sparkles, text: 'Introduced 4K image export for Luminary plan users.' },
-      { type: 'feature', icon: Sparkles, text: 'Added dark-mode-aware chat bubble styling for better readability at night.' },
+      { type: 'feature', icon: Landmark, text: 'Introduced 4K image export for Luminary plan users.' },
+      { type: 'feature', icon: Landmark, text: 'Added dark-mode-aware chat bubble styling for better readability at night.' },
       { type: 'improvement', icon: Zap, text: 'Improved AI follow-up question logic — now asks fewer, more targeted questions.' },
       { type: 'security', icon: Shield, text: 'Upgraded all dream data encryption to AES-256-GCM.' },
     ],
@@ -32,8 +32,8 @@ const releases = [
     date: 'March 12, 2026',
     label: null,
     changes: [
-      { type: 'feature', icon: Sparkles, text: 'Launched QuickRaina API (beta) for Luminary subscribers.' },
-      { type: 'feature', icon: Sparkles, text: 'Testimonials page — real stories from our community of dreamers.' },
+      { type: 'feature', icon: Landmark, text: 'Launched QuickRaina API (beta) for Luminary subscribers.' },
+      { type: 'feature', icon: Landmark, text: 'Testimonials page — real stories from our community of dreamers.' },
       { type: 'improvement', icon: Zap, text: 'Complete redesign of the onboarding flow for new users.' },
       { type: 'fix', icon: Bug, text: 'Resolved theme toggle persistence bug across browser sessions.' },
     ],
@@ -44,9 +44,9 @@ const releases = [
     label: 'Major',
     labelColor: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/20',
     changes: [
-      { type: 'feature', icon: Sparkles, text: 'Complete platform rebuild — new React frontend with Framer Motion animations.' },
-      { type: 'feature', icon: Sparkles, text: 'Introduced Visionary and Luminary subscription tiers.' },
-      { type: 'feature', icon: Sparkles, text: 'Brand new conversational AI engine with 40% richer dream interpretation.' },
+      { type: 'feature', icon: Landmark, text: 'Complete platform rebuild — new React frontend with Framer Motion animations.' },
+      { type: 'feature', icon: Landmark, text: 'Introduced Visionary and Luminary subscription tiers.' },
+      { type: 'feature', icon: Landmark, text: 'Brand new conversational AI engine with 40% richer dream interpretation.' },
       { type: 'improvement', icon: Zap, text: 'Mobile-first responsive design across all pages.' },
     ],
   },

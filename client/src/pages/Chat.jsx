@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Send, 
-  Sparkles, 
+  Landmark, 
   User, 
   Trash2, 
   Image as ImageIcon, 
@@ -21,7 +21,10 @@ import {
   Settings,
   HelpCircle,
   Menu,
-  Home
+  Home,
+  Paperclip,
+  X,
+  Globe
 } from 'lucide-react';
 
 import { useNavigate } from 'react-router-dom';
@@ -62,30 +65,41 @@ function ChatMessage({ msg, dark }) {
         </div>
       ) : (
         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 flex items-center justify-center flex-shrink-0 shadow-lg shadow-violet-500/25">
-          <Sparkles className="w-4 h-4 text-white" />
+          <Landmark className="w-4 h-4 text-white" />
         </div>
       )}
 
       {/* Bubble & Image */}
       <div className={`group flex flex-col max-w-[85%] sm:max-w-[70%] ${isUser ? 'items-end' : 'items-start'}`}>
-        <div
-          className={`relative px-5 py-3.5 rounded-2xl leading-relaxed text-sm ${
-            isUser
-              ? 'bg-gradient-to-r from-violet-600 to-violet-500 text-white rounded-br-sm shadow-lg shadow-violet-500/20'
-              : dark
-              ? 'bg-[#1a1a2e] text-slate-200 rounded-bl-sm border border-white/8'
-              : 'bg-slate-100 text-slate-800 rounded-bl-sm'
-          }`}
-        >
-          {(msg.text || '').trim()}
-          
-          <button
-            onClick={handleCopy}
-            className={`absolute -top-2 ${isUser ? '-left-2' : '-right-2'} opacity-0 group-hover:opacity-100 transition-all duration-200 w-6 h-6 rounded-md flex items-center justify-center ${dark ? 'bg-[#0a0a0f] border border-white/10 text-slate-400' : 'bg-white border border-slate-200 text-slate-500'} shadow-sm hover:scale-110`}
+        {msg.image && (
+          <img src={msg.image} alt="attachment" className={`rounded-2xl max-w-sm w-full mb-2 object-cover border shadow-lg ${dark ? 'border-white/10' : 'border-slate-200'}`} />
+        )}
+        {msg.fileName && (
+          <div className={`flex items-center gap-2 mb-2 p-3 rounded-xl text-xs border ${dark ? 'bg-white/10 border-white/10 text-slate-200' : 'bg-slate-100 border-slate-200 text-slate-700'}`}>
+            <Paperclip className="w-4 h-4" />
+            <span className="truncate max-w-[200px]">{msg.fileName}</span>
+          </div>
+        )}
+        {msg.text && msg.text.trim() && (
+          <div
+            className={`relative px-5 py-3.5 rounded-2xl leading-relaxed text-sm ${
+              isUser
+                ? 'bg-gradient-to-r from-emerald-600 to-emerald-500 text-white rounded-br-sm shadow-lg shadow-emerald-500/20'
+                : dark
+                ? 'bg-[#1a1a2e] text-slate-200 rounded-bl-sm border border-white/8'
+                : 'bg-slate-100 text-slate-800 rounded-bl-sm'
+            }`}
           >
-            {copied ? <Check className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
-          </button>
-        </div>
+            {msg.text.trim()}
+            
+            <button
+              onClick={handleCopy}
+              className={`absolute -top-2 ${isUser ? '-left-2' : '-right-2'} opacity-0 group-hover:opacity-100 transition-all duration-200 w-6 h-6 rounded-md flex items-center justify-center ${dark ? 'bg-[#0a0a0f] border border-white/10 text-slate-400' : 'bg-white border border-slate-200 text-slate-500'} shadow-sm hover:scale-110`}
+            >
+              {copied ? <Check className="w-3 h-3 text-green-400" /> : <Copy className="w-3 h-3" />}
+            </button>
+          </div>
+        )}
 
         {/* EMI Result Card */}
         {msg.emiData && (
@@ -118,6 +132,10 @@ const Chat = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [dark, setDark] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isRecording, setIsRecording] = useState(false);
+  const [attachment, setAttachment] = useState(null);
+  const [language, setLanguage] = useState('English');
+  const fileInputRef = useRef(null);
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
@@ -133,6 +151,42 @@ const Chat = () => {
   }, [messages, isLoading]);
 
   const generateId = () => Math.random().toString(36).substring(2, 9);
+
+  const handleMicClick = () => {
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+      alert("Speech recognition is not supported in your browser.");
+      return;
+    }
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    
+    recognition.onstart = () => setIsRecording(true);
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      setInput(prev => prev + (prev ? ' ' : '') + transcript);
+      setIsRecording(false);
+    };
+    recognition.onerror = (event) => {
+      console.error('Speech recognition error', event.error);
+      setIsRecording(false);
+    };
+    recognition.onend = () => setIsRecording(false);
+    
+    recognition.start();
+  };
+
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setAttachment(e.target.files[0]);
+    }
+  };
+
+  const removeAttachment = () => {
+    setAttachment(null);
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
 
   const [activeChatId, setActiveChatId] = useState(null);
   const [history, setHistory] = useState([]);
@@ -190,12 +244,30 @@ const Chat = () => {
 
   const handleSend = async (e) => {
     e.preventDefault();
-    if (!input.trim() || isLoading) return;
+    if ((!input.trim() && !attachment) || isLoading) return;
 
-    const userMsg = { id: generateId(), role: 'user', text: input, timestamp: new Date() };
+    let attachmentUrl = null;
+    let fileName = null;
+    if (attachment) {
+      if (attachment.type.startsWith('image/')) {
+        attachmentUrl = URL.createObjectURL(attachment);
+      }
+      fileName = attachment.name;
+    }
+
+    const userMsg = { 
+      id: generateId(), 
+      role: 'user', 
+      text: input, 
+      image: attachmentUrl,
+      fileName: attachmentUrl ? null : fileName,
+      timestamp: new Date() 
+    };
+
     const updatedMessages = [...messages, userMsg];
     setMessages(updatedMessages);
     setInput('');
+    removeAttachment();
     setIsLoading(true);
 
     try {
@@ -212,7 +284,8 @@ const Chat = () => {
           'Authorization': `Bearer ${user.token}`
         },
         body: JSON.stringify({ 
-          messages: updatedMessages.map(m => ({ role: m.role, content: m.text })) 
+          messages: updatedMessages.map(m => ({ role: m.role, content: m.text })),
+          language
         })
       });
 
@@ -345,7 +418,7 @@ const Chat = () => {
             <div className="p-6 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-white" />
+                  <Landmark className="w-5 h-5 text-white" />
                 </div>
                 <span className="font-bold text-lg tracking-tight">MortgageAI</span>
               </div>
@@ -481,6 +554,18 @@ const Chat = () => {
             </div>
           </div>
           <div className="flex items-center gap-3">
+             <div className="flex items-center gap-2 bg-transparent mr-2">
+               <Globe className={`w-4 h-4 ${dark ? 'text-slate-400' : 'text-slate-500'}`} />
+               <select 
+                 value={language}
+                 onChange={(e) => setLanguage(e.target.value)}
+                 className={`bg-transparent outline-none text-sm font-medium cursor-pointer ${dark ? 'text-white [&>option]:bg-[#050508]' : 'text-slate-800 [&>option]:bg-white'}`}
+               >
+                 <option value="English">English</option>
+                 <option value="Hindi">Hindi</option>
+                 <option value="Punjabi">Punjabi</option>
+               </select>
+             </div>
              <div className={`p-2 rounded-lg ${dark ? 'hover:bg-white/5 text-slate-400' : 'hover:bg-slate-100 text-slate-500'}`}>
                <User className="w-5 h-5" />
              </div>
@@ -499,7 +584,7 @@ const Chat = () => {
             {isLoading && (
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 flex items-center justify-center animate-pulse">
-                  <Sparkles className="w-4 h-4 text-white" />
+                  <Landmark className="w-4 h-4 text-white" />
                 </div>
                 <div className={`flex gap-1.5 px-4 py-3 rounded-2xl ${dark ? 'bg-white/5' : 'bg-slate-100'}`}>
                   <div className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-bounce" style={{ animationDelay: '0ms' }}></div>
@@ -515,10 +600,35 @@ const Chat = () => {
         {/* Input Bar */}
         <div className={`p-6 border-t ${dark ? 'border-white/10 bg-[#050508]/80' : 'bg-white border-slate-200'} backdrop-blur-md`}>
           <div className="max-w-3xl mx-auto relative">
+            {attachment && (
+              <div className={`flex items-center justify-between p-2 mb-2 rounded-lg text-sm ${dark ? 'bg-white/10 text-white' : 'bg-slate-100 text-slate-800'}`}>
+                <div className="flex items-center gap-2 truncate">
+                  <Paperclip className="w-4 h-4 text-emerald-500" />
+                  <span className="truncate max-w-[200px]">{attachment.name}</span>
+                </div>
+                <button onClick={removeAttachment} className="p-1 hover:text-red-400 transition-colors">
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            )}
             <form 
               onSubmit={handleSend}
-              className={`relative flex items-center rounded-2xl p-1.5 transition-all duration-300 border ${dark ? 'bg-[#0f0f1a] border-white/10 focus-within:border-violet-500/50' : 'bg-white border-slate-200 focus-within:border-violet-500'} shadow-2xl`}
+              className={`relative flex items-center rounded-2xl p-1.5 transition-all duration-300 border ${dark ? 'bg-[#0f0f1a] border-white/10 focus-within:border-emerald-500/50' : 'bg-white border-slate-200 focus-within:border-emerald-500'} shadow-2xl`}
             >
+              <button 
+                type="button" 
+                onClick={() => fileInputRef.current?.click()}
+                className={`p-2 ml-1 rounded-xl transition-colors ${dark ? 'hover:bg-white/5 text-slate-500' : 'hover:bg-slate-100 text-slate-400'}`}
+              >
+                <Paperclip className="w-5 h-5" />
+              </button>
+              <input 
+                type="file" 
+                ref={fileInputRef} 
+                onChange={handleFileChange} 
+                className="hidden" 
+                accept="image/*,.pdf,.doc,.docx"
+              />
               <textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -533,15 +643,19 @@ const Chat = () => {
                 rows="1"
               />
               <div className="flex items-center gap-1 pr-1">
-                <button type="button" className={`p-2 rounded-xl transition-colors ${dark ? 'hover:bg-white/5 text-slate-500' : 'hover:bg-slate-100 text-slate-400'}`}>
+                <button 
+                  type="button" 
+                  onClick={handleMicClick}
+                  className={`p-2 rounded-xl transition-colors ${isRecording ? 'text-red-500 bg-red-500/10 animate-pulse' : dark ? 'hover:bg-white/5 text-slate-500' : 'hover:bg-slate-100 text-slate-400'}`}
+                >
                   <Mic className="w-5 h-5" />
                 </button>
                 <button 
                   type="submit"
-                  disabled={!input.trim() || isLoading}
+                  disabled={(!input.trim() && !attachment) || isLoading}
                   className={`p-2.5 rounded-xl transition-all ${
-                    input.trim() && !isLoading 
-                    ? 'bg-violet-600 text-white shadow-lg shadow-violet-600/30 hover:scale-105 active:scale-95' 
+                    ((input.trim() || attachment) && !isLoading)
+                    ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/30 hover:scale-105 active:scale-95' 
                     : 'text-slate-600 cursor-not-allowed opacity-50'
                   }`}
                 >

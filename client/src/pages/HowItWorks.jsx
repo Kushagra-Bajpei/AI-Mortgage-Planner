@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MessageSquare, BarChart2, FileText, ChevronRight, Clock, Shield, Zap, Sparkles, CheckCircle2 } from 'lucide-react';
+import { MessageSquare, BarChart2, FileText, ChevronRight, Clock, Shield, Zap, Landmark, CheckCircle2 } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 import { FadeIn, StaggerChildren, StaggerItem } from '../components/AnimationWrappers';
 import PublicLayout from '../layouts/PublicLayout';
@@ -149,7 +149,7 @@ export default function HowItWorks() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn className="text-center mb-24">
             <div className="w-20 h-20 bg-gradient-to-br from-emerald-500/20 to-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-white/10 shadow-2xl backdrop-blur-md">
-              <Sparkles className="w-10 h-10 text-emerald-400 animate-pulse" />
+              <Landmark className="w-10 h-10 text-emerald-400 animate-pulse" />
             </div>
             <h2 className={`font-display text-5xl sm:text-6xl font-black mb-6 ${dark ? 'text-white' : 'text-slate-900'}`}>
               Common <span className="gradient-text">Questions</span>

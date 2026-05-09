@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Check, Sparkles, Zap, Crown } from 'lucide-react';
+import { Check, Landmark, Zap, Crown } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 import { FadeIn, StaggerChildren, StaggerItem } from '../components/AnimationWrappers';
 import PublicLayout from '../layouts/PublicLayout';
@@ -7,7 +7,7 @@ import PublicLayout from '../layouts/PublicLayout';
 const plans = [
   {
     name: 'Homebuyer',
-    icon: Sparkles,
+    icon: Landmark,
     price: 'Free',
     period: '',
     desc: 'Perfect for first-time buyers exploring their mortgage options.',

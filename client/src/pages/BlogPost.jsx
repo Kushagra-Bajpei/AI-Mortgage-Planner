@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Clock, User, Calendar, Share2, Sparkles } from 'lucide-react';
+import { ArrowLeft, Clock, User, Calendar, Share2, Landmark } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 import { FadeIn } from '../components/AnimationWrappers';
 import PublicLayout from '../layouts/PublicLayout';
@@ -115,7 +115,7 @@ export default function BlogPost() {
                <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/10 blur-3xl rounded-full" />
                <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-500/10 blur-3xl rounded-full" />
                
-               <Sparkles className="w-10 h-10 text-violet-400 mx-auto mb-6" />
+               <Landmark className="w-10 h-10 text-violet-400 mx-auto mb-6" />
                <h3 className={`text-2xl font-bold mb-4 ${dark ? 'text-white' : 'text-slate-900'}`}>Want to visualize your own dreams?</h3>
                <p className={`mb-8 ${dark ? 'text-slate-400' : 'text-slate-600'}`}>Join thousands of others who are using QuickRaina to explore their subconscious.</p>
                <Link 

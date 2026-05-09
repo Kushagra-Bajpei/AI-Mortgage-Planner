@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Clock, User, Sparkles, Mail } from 'lucide-react';
+import { ArrowRight, Clock, User, Landmark, Mail } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 import { FadeIn, StaggerChildren, StaggerItem } from '../components/AnimationWrappers';
 import PublicLayout from '../layouts/PublicLayout';
@@ -21,7 +21,7 @@ export default function Blog() {
           <div className="max-w-3xl">
             <FadeIn>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold text-violet-400 bg-violet-500/10 border border-violet-500/20 mb-6">
-                <Sparkles className="w-3.5 h-3.5" />
+                <Landmark className="w-3.5 h-3.5" />
                 INSIGHTS & UPDATES
               </span>
               <h1 className={`font-display text-5xl sm:text-7xl font-bold mb-8 leading-tight ${dark ? 'text-white' : 'text-slate-900'}`}>

@@ -37,7 +37,7 @@ function extractNumbers(text) {
 
 export const chatWithAI = async (req, res, next) => {
     try {
-        const { messages } = req.body;
+        const { messages, language = 'English' } = req.body;
 
         if (!messages || messages.length === 0) {
             return res.status(400).json({ error: 'Messages are required' });
@@ -65,7 +65,8 @@ export const chatWithAI = async (req, res, next) => {
         const systemPrompt = `You are Aria, an expert, friendly AI Mortgage Advisor for India. 
 Your goal is to help users understand home loans, calculate EMIs, evaluate eligibility, compare interest rates, and give tips on tax benefits (e.g. 80C, 24b) and prepayment.
 IMPORTANT: You MUST ONLY answer questions related to mortgages, home loans, real estate finance, EMIs, and related tax/financial planning. If the user asks about ANY other topic (e.g., general AI, coding, history, casual non-finance chat), you must politely decline and remind them that you are exclusively a Mortgage Advisor.
-Keep responses concise, clear, and professional. Use Indian Rupee formats (e.g. ₹50L, ₹50,00,000). Use Markdown for formatting.`;
+Keep responses concise, clear, and professional. Use Indian Rupee formats (e.g. ₹50L, ₹50,00,000). Use Markdown for formatting.
+CRITICAL INSTRUCTION: You MUST reply entirely in the ${language} language. Your response should sound natural to native ${language} speakers.`;
 
         const groqMessages = [
             { role: 'system', content: systemPrompt },

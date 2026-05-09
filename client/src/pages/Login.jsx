@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Eye, EyeOff, Sparkles, AlertCircle, Loader } from 'lucide-react';
+import { Eye, EyeOff, Landmark, AlertCircle, Loader } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 import { useAuth } from '../hooks/useAuth';
 
@@ -67,10 +67,10 @@ export default function Login() {
       >
         {/* Logo */}
         <div className="flex items-center gap-2 mb-8">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-500 to-cyan-400 flex items-center justify-center shadow-[0_0_20px_rgba(124,58,237,0.4)]">
-            <Sparkles className="w-5 h-5 text-white" />
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-600 to-amber-500 flex items-center justify-center shadow-[0_0_20px_rgba(5,150,105,0.4)]">
+            <Landmark className="w-5 h-5 text-white" />
           </div>
-          <span className="font-display font-bold text-xl gradient-text">QuickRaina</span>
+          <span className="font-display font-bold text-xl gradient-text">MortgageAI</span>
         </div>
 
         <h1 className={`font-display text-3xl font-bold mb-2 ${dark ? 'text-white' : 'text-slate-900'}`}>Welcome back</h1>
@@ -79,9 +79,9 @@ export default function Login() {
         </p>
 
         {/* Demo hint */}
-        <div className={`flex items-start gap-2 p-3 rounded-xl mb-6 text-xs ${dark ? 'bg-violet-500/10 border border-violet-500/20 text-violet-300' : 'bg-violet-50 border border-violet-200 text-violet-700'}`}>
-          <Sparkles className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" />
-          <span><strong>Demo:</strong> Use email <code>demo@quickraina.ai</code> and password <code>demo123</code>, or just sign up with any credentials.</span>
+        <div className={`flex items-start gap-2 p-3 rounded-xl mb-6 text-xs ${dark ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-300' : 'bg-emerald-50 border border-emerald-200 text-emerald-700'}`}>
+          <Landmark className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" />
+          <span><strong>Demo:</strong> Use email <code>demo@mortgageai.com</code> and password <code>demo123</code>, or just sign up with any credentials.</span>
         </div>
 
         {apiError && (
