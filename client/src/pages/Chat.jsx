@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { 
   Send, 
   Landmark, 
@@ -64,7 +66,7 @@ function ChatMessage({ msg, dark }) {
           <User className="w-4 h-4" />
         </div>
       ) : (
-        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 flex items-center justify-center flex-shrink-0 shadow-lg shadow-violet-500/25">
+        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-amber-400 flex items-center justify-center flex-shrink-0 shadow-lg shadow-emerald-500/25">
           <Landmark className="w-4 h-4 text-white" />
         </div>
       )}
@@ -90,7 +92,23 @@ function ChatMessage({ msg, dark }) {
                 : 'bg-slate-100 text-slate-800 rounded-bl-sm'
             }`}
           >
-            {msg.text.trim()}
+            <ReactMarkdown 
+              remarkPlugins={[remarkGfm]}
+              components={{
+                p: ({node, ...props}) => <p className="mb-2 last:mb-0" {...props} />,
+                ul: ({node, ...props}) => <ul className="list-disc ml-4 mb-2" {...props} />,
+                ol: ({node, ...props}) => <ol className="list-decimal ml-4 mb-2" {...props} />,
+                li: ({node, ...props}) => <li className="mb-1" {...props} />,
+                h1: ({node, ...props}) => <h1 className="text-lg font-bold mb-2" {...props} />,
+                h2: ({node, ...props}) => <h2 className="text-base font-bold mb-2" {...props} />,
+                h3: ({node, ...props}) => <h3 className="text-sm font-bold mb-1" {...props} />,
+                code: ({node, inline, ...props}) => (
+                  <code className={`${inline ? 'bg-black/10 px-1 rounded' : 'block bg-black/10 p-2 rounded my-2'} font-mono text-xs`} {...props} />
+                ),
+              }}
+            >
+              {msg.text.trim()}
+            </ReactMarkdown>
             
             <button
               onClick={handleCopy}
@@ -417,7 +435,7 @@ const Chat = () => {
           >
             <div className="p-6 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-600 to-amber-500 flex items-center justify-center">
                   <Landmark className="w-5 h-5 text-white" />
                 </div>
                 <span className="font-bold text-lg tracking-tight">MortgageAI</span>
@@ -583,13 +601,13 @@ const Chat = () => {
             ))}
             {isLoading && (
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 flex items-center justify-center animate-pulse">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-emerald-500 to-amber-400 flex items-center justify-center animate-pulse">
                   <Landmark className="w-4 h-4 text-white" />
                 </div>
                 <div className={`flex gap-1.5 px-4 py-3 rounded-2xl ${dark ? 'bg-white/5' : 'bg-slate-100'}`}>
-                  <div className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-bounce" style={{ animationDelay: '300ms' }}></div>
                 </div>
               </div>
             )}

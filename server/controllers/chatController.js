@@ -62,17 +62,26 @@ export const chatWithAI = async (req, res, next) => {
             apiKey: process.env.GROQ_API_KEY
         });
 
+        const languageMap = {
+            'English': 'English',
+            'Hindi': 'Hindi (Devanagari script)',
+            'Punjabi': 'Punjabi (Gurmukhi script)'
+        };
+        const targetLanguage = languageMap[language] || language;
+
         const systemPrompt = `You are Aria, an expert, friendly AI Mortgage Advisor for India. 
 Your goal is to help users understand home loans, calculate EMIs, evaluate eligibility, compare interest rates, and give tips on tax benefits (e.g. 80C, 24b) and prepayment.
-IMPORTANT: You MUST ONLY answer questions related to mortgages, home loans, real estate finance, EMIs, and related tax/financial planning. If the user asks about ANY other topic (e.g., general AI, coding, history, casual non-finance chat), you must politely decline and remind them that you are exclusively a Mortgage Advisor.
-Keep responses concise, clear, and professional. Use Indian Rupee formats (e.g. ₹50L, ₹50,00,000). Use Markdown for formatting.
-CRITICAL INSTRUCTION: You MUST reply entirely in the ${language} language. Your response should sound natural to native ${language} speakers.`;
+IMPORTANT: You MUST ONLY answer questions related to mortgages. If the user asks about ANY other topic, politely steer back.
+Keep responses concise unless asked for more (like "500 words"). Use Indian Rupee formats. Use Markdown for formatting.
+CRITICAL LANGUAGE INSTRUCTION: You MUST reply entirely and ONLY in the ${targetLanguage}. Even if the conversation history contains other languages, you MUST ignore those patterns and respond strictly in ${targetLanguage} from now on. Do not use Romanized script for Indic languages; use the native script (Devanagari for Hindi, Gurmukhi for Punjabi). Do not mention the language switch, just provide the advice in ${targetLanguage}.`;
 
         const groqMessages = [
             { role: 'system', content: systemPrompt },
-            ...messages.map(m => ({
+            ...messages.map((m, i) => ({
                 role: m.role === 'ai' ? 'assistant' : 'user',
-                content: m.content || ''
+                content: (i === messages.length - 1 && m.role !== 'ai') 
+                  ? `${m.content}\n\n(Note: Please provide your response strictly in ${targetLanguage}. Do not use any other language or script.)` 
+                  : m.content || ''
             }))
         ];
 
@@ -82,7 +91,7 @@ CRITICAL INSTRUCTION: You MUST reply entirely in the ${language} language. Your 
                 messages: groqMessages,
                 model: "llama-3.1-8b-instant",
                 temperature: 0.6,
-                max_tokens: 1024,
+                max_tokens: 2048,
             });
             reply = chatCompletion.choices[0]?.message?.content || reply;
         } catch (apiErr) {
