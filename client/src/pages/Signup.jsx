@@ -66,8 +66,8 @@ export default function Signup() {
   const inputClass = (field) =>
     `w-full px-4 py-3.5 rounded-xl text-sm outline-none transition-all duration-200 ${
       dark
-        ? `bg-white/5 border text-white placeholder-slate-500 focus:ring-2 focus:ring-violet-500 ${errors[field] ? 'border-red-500' : 'border-white/10 focus:border-violet-500'}`
-        : `bg-slate-50 border text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-violet-200 ${errors[field] ? 'border-red-400' : 'border-slate-200 focus:border-violet-400'}`
+        ? `bg-white/5 border text-white placeholder-slate-500 focus:ring-2 focus:ring-emerald-500 ${errors[field] ? 'border-red-500' : 'border-white/10 focus:border-emerald-500'}`
+        : `bg-slate-50 border text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-emerald-200 ${errors[field] ? 'border-red-400' : 'border-slate-200 focus:border-emerald-400'}`
     }`;
 
   return (
@@ -149,7 +149,7 @@ export default function Signup() {
                 type="button"
                 id="terms-checkbox"
                 onClick={() => { setAgreed(!agreed); if (errors.agreed) setErrors(prev => ({ ...prev, agreed: '' })); }}
-                className={`w-5 h-5 rounded-md border-2 flex-shrink-0 flex items-center justify-center transition-all mt-0.5 ${agreed ? 'bg-violet-600 border-violet-600' : dark ? 'border-white/20 bg-transparent' : 'border-slate-300 bg-transparent'}`}
+                className={`w-5 h-5 rounded-md border-2 flex-shrink-0 flex items-center justify-center transition-all mt-0.5 ${agreed ? 'bg-emerald-600 border-emerald-600' : dark ? 'border-white/20 bg-transparent' : 'border-slate-300 bg-transparent'}`}
               >
                 {agreed && <Check className="w-3 h-3 text-white" />}
               </button>

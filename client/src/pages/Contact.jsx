@@ -7,9 +7,9 @@ import PublicLayout from '../layouts/PublicLayout';
 import { API_BASE_URL } from '../config';
 
 const contactInfo = [
-  { icon: Mail, label: 'Email', value: 'hello@quickraina.ai', href: 'mailto:hello@quickraina.ai' },
-  { icon: MapPin, label: 'Office', value: '123 Dream Street, San Francisco, CA 94102' },
-  { icon: Phone, label: 'Phone', value: '+1 (555) 987-6543', href: 'tel:+15559876543' },
+  { icon: Mail, label: 'Email', value: 'support@mortgageai.com', href: 'mailto:support@mortgageai.com' },
+  { icon: MapPin, label: 'Office', value: '456 Finance Avenue, San Francisco, CA 94105' },
+  { icon: Phone, label: 'Phone', value: '+1 (555) 123-4567', href: 'tel:+15551234567' },
 ];
 
 export default function Contact() {
@@ -64,25 +64,25 @@ export default function Contact() {
   const inputClass = (field) =>
     `w-full px-4 py-3.5 rounded-xl text-sm outline-none transition-all duration-200 ${
       dark
-        ? `bg-white/5 border text-white placeholder-slate-500 focus:ring-2 focus:ring-violet-500 ${errors[field] ? 'border-red-500' : 'border-white/10 focus:border-violet-500'}`
-        : `bg-slate-50 border text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-violet-200 ${errors[field] ? 'border-red-400' : 'border-slate-200 focus:border-violet-400'}`
+        ? `bg-white/5 border text-white placeholder-slate-500 focus:ring-2 focus:ring-emerald-500 ${errors[field] ? 'border-red-500' : 'border-white/10 focus:border-emerald-500'}`
+        : `bg-slate-50 border text-slate-900 placeholder-slate-400 focus:ring-2 focus:ring-emerald-200 ${errors[field] ? 'border-red-400' : 'border-slate-200 focus:border-emerald-400'}`
     }`;
 
   return (
     <PublicLayout>
       {/* Header */}
       <section className="pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[400px] bg-violet-600/10 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[400px] bg-emerald-600/10 blur-[120px] rounded-full pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 text-center relative">
           <FadeIn>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold text-violet-400 bg-violet-500/10 border border-violet-500/20 mb-6">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 mb-6">
               Get In Touch
             </span>
             <h1 className={`font-display text-5xl sm:text-6xl font-bold mb-6 ${dark ? 'text-white' : 'text-slate-900'}`}>
               Let's start a <span className="gradient-text">conversation</span>
             </h1>
             <p className={`text-xl leading-relaxed ${dark ? 'text-slate-400' : 'text-slate-600'}`}>
-              Have a dream, question, or just want to say hello? We'd love to hear from you. Our team typically responds within a few hours.
+              Have a question about mortgages, rates, or how Aria works? We'd love to hear from you. Our team Typically responds within a few hours.
             </p>
           </FadeIn>
         </div>
@@ -100,13 +100,13 @@ export default function Contact() {
                   <div className="space-y-5">
                     {contactInfo.map(({ icon: Icon, label, value, href }) => (
                       <div key={label} className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-cyan-400 flex items-center justify-center flex-shrink-0">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-amber-400 flex items-center justify-center flex-shrink-0">
                           <Icon className="w-4 h-4 text-white" />
                         </div>
                         <div>
                           <div className={`text-xs font-semibold uppercase tracking-wide mb-0.5 ${dark ? 'text-slate-500' : 'text-slate-400'}`}>{label}</div>
                           {href ? (
-                            <a href={href} className="text-sm text-violet-400 hover:text-violet-300 transition-colors">{value}</a>
+                            <a href={href} className="text-sm text-emerald-400 hover:text-emerald-300 transition-colors">{value}</a>
                           ) : (
                             <div className={`text-sm ${dark ? 'text-slate-300' : 'text-slate-700'}`}>{value}</div>
                           )}
@@ -119,7 +119,7 @@ export default function Contact() {
 
               <FadeIn direction="right" delay={0.15}>
                 <div className="relative rounded-2xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-violet-600 to-cyan-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-600 to-amber-500" />
                   <div className="relative p-8 text-white">
                     <h3 className="font-display text-xl font-bold mb-3">Response Time</h3>
                     <p className="text-sm text-white/80 mb-4">Our team is available Monday to Friday, 9 AM – 6 PM PST.</p>
@@ -159,7 +159,7 @@ export default function Contact() {
                         </p>
                         <button
                           onClick={() => { setStatus('idle'); setForm({ name: '', email: '', subject: '', message: '' }); }}
-                          className="mt-6 px-6 py-2.5 rounded-xl bg-violet-500/10 text-violet-400 text-sm font-semibold hover:bg-violet-500/20 transition-colors"
+                          className="mt-6 px-6 py-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 text-sm font-semibold hover:bg-emerald-500/20 transition-colors"
                         >
                           Send Another Message
                         </button>
@@ -246,7 +246,7 @@ export default function Contact() {
                           disabled={status === 'loading'}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
-                          className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-semibold text-base hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] transition-all duration-300 disabled:opacity-60"
+                          className="w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-gradient-to-r from-emerald-600 to-amber-500 text-white font-semibold text-base hover:shadow-[0_0_30px_rgba(5,150,105,0.4)] transition-all duration-300 disabled:opacity-60"
                         >
                           {status === 'loading' ? (
                             <><Loader className="w-4 h-4 animate-spin" />Sending...</>

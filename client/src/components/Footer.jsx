@@ -71,8 +71,8 @@ export default function Footer() {
                   aria-label={label}
                   className={`w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-300 ${
                     dark
-                      ? 'bg-white/5 text-slate-400 hover:bg-violet-500/20 hover:text-violet-400'
-                      : 'bg-slate-100 text-slate-500 hover:bg-violet-50 hover:text-violet-600'
+                      ? 'bg-white/5 text-slate-400 hover:bg-emerald-500/20 hover:text-emerald-400'
+                      : 'bg-slate-100 text-slate-500 hover:bg-emerald-50 hover:text-emerald-600'
                   }`}
                 >
                   <Icon />

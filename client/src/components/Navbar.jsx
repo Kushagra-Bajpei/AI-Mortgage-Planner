@@ -44,7 +44,7 @@ export default function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? dark
-            ? 'glass shadow-[0_4px_32px_rgba(124,58,237,0.15)]'
+            ? 'glass shadow-[0_4px_32px_rgba(5,150,105,0.15)]'
             : 'glass-light shadow-[0_4px_32px_rgba(0,0,0,0.1)]'
           : 'bg-transparent'
       }`}
@@ -70,7 +70,7 @@ export default function Navbar() {
                 to={link.to}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   location.pathname === link.to
-                    ? 'text-violet-400 bg-violet-500/10'
+                    ? 'text-emerald-400 bg-emerald-500/10'
                     : dark
                     ? 'text-slate-300 hover:text-white hover:bg-white/5'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-black/5'
@@ -189,7 +189,7 @@ export default function Navbar() {
                   to={link.to}
                   className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                     location.pathname === link.to
-                      ? 'text-violet-400 bg-violet-500/10'
+                      ? 'text-emerald-400 bg-emerald-500/10'
                       : dark ? 'text-slate-300 hover:text-white hover:bg-white/5' : 'text-slate-600 hover:bg-slate-100'
                   }`}
                 >

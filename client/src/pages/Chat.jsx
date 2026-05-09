@@ -307,7 +307,7 @@ const Chat = () => {
       } else {
         const errorText = response.status === 401 
           ? "Your session has expired. Please sign out and sign in again to continue."
-          : "I'm having trouble connecting to the dream realm right now. Please try again in a moment.";
+          : "I'm having trouble connecting to the server right now. Please try again in a moment.";
 
         const errorMsg = { 
           id: generateId(), 
@@ -443,7 +443,7 @@ const Chat = () => {
               <button 
                 onClick={() => {
 
-                  setMessages([{ id: generateId(), role: 'ai', text: "Ready for a new exploration. What did you dream about?", timestamp: new Date() }]);
+                  setMessages([{ id: generateId(), role: 'ai', text: "Ready for a new session. How can I help with your home loan planning today?", timestamp: new Date() }]);
                   setActiveChatId(null);
                 }}
                 className="w-full flex items-center gap-2 px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-medium transition-all shadow-lg shadow-emerald-600/20"

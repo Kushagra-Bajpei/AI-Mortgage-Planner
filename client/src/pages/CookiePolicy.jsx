@@ -9,38 +9,38 @@ const cookieTypes = [
     required: true,
     desc: 'These cookies are necessary for the website to function and cannot be switched off. They are set in response to actions you take, such as logging in or filling in forms.',
     examples: ['Session authentication token', 'CSRF protection token', 'User preferences (theme, language)'],
-    color: 'from-violet-500 to-purple-600',
+    color: 'from-emerald-500 to-emerald-600',
   },
   {
     name: 'Analytics Cookies',
     required: false,
     desc: 'These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. All information is aggregated and anonymous.',
     examples: ['Page view counts', 'Session duration', 'Feature usage statistics'],
-    color: 'from-cyan-500 to-blue-600',
+    color: 'from-amber-500 to-orange-600',
   },
   {
     name: 'Functional Cookies',
     required: false,
     desc: 'These cookies enable enhanced functionality and personalisation. They may be set by us or third-party providers whose services we have added to our pages.',
-    examples: ['Chat history persistence', 'Dream visualization preferences', 'Onboarding completion state'],
-    color: 'from-pink-500 to-rose-600',
+    examples: ['Chat history persistence', 'Loan calculation preferences', 'Onboarding completion state'],
+    color: 'from-emerald-400 to-teal-500',
   },
 ];
 
 const sections = [
   {
     title: '1. What Are Cookies?',
-    content: 'Cookies are small text files placed on your device when you visit a website. They help websites remember your preferences, keep you logged in, and understand how you use the site. QuickRaina uses cookies and similar technologies (such as local storage) to deliver and improve our services.',
+    content: 'Cookies are small text files placed on your device when you visit a website. They help websites remember your preferences, keep you logged in, and understand how you use the site. MortgageAI uses cookies and similar technologies (such as local storage) to deliver and improve our services.',
   },
   {
     title: '2. How to Control Cookies',
     content: `You can control cookies through your browser settings. Most browsers allow you to:
-
+ 
 • View and delete cookies stored on your device.
 • Block cookies from specific websites or all websites.
 • Be notified when a cookie is being placed.
-
-Please note that disabling essential cookies will affect your ability to use QuickRaina. To manage analytics and functional cookies, please contact us at privacy@quickraina.ai.`,
+ 
+Please note that disabling essential cookies will affect your ability to use MortgageAI. To manage analytics and functional cookies, please contact us at privacy@mortgageai.com.`,
   },
   {
     title: '3. Third-Party Cookies',
@@ -48,7 +48,7 @@ Please note that disabling essential cookies will affect your ability to use Qui
   },
   {
     title: '4. Updates to This Policy',
-    content: 'We may update this Cookie Policy from time to time. Any changes will be posted on this page with an updated effective date. If you have questions, contact us at privacy@quickraina.ai.',
+    content: 'We may update this Cookie Policy from time to time. Any changes will be posted on this page with an updated effective date. If you have questions, contact us at privacy@mortgageai.com.',
   },
 ];
 
@@ -58,17 +58,17 @@ export default function CookiePolicy() {
   return (
     <PublicLayout>
       <section className="pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[400px] bg-violet-600/10 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[400px] bg-emerald-600/10 blur-[120px] rounded-full pointer-events-none" />
         <div className="max-w-3xl mx-auto px-4 text-center relative">
           <FadeIn>
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-cyan-400 flex items-center justify-center mx-auto mb-6">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-amber-400 flex items-center justify-center mx-auto mb-6">
               <Cookie className="w-7 h-7 text-white" />
             </div>
             <h1 className={`font-display text-5xl sm:text-6xl font-bold mb-6 ${dark ? 'text-white' : 'text-slate-900'}`}>
               Cookie <span className="gradient-text">Policy</span>
             </h1>
             <p className={`text-base ${dark ? 'text-slate-500' : 'text-slate-400'}`}>
-              Last updated: April 19, 2026
+              Last updated: May 10, 2026
             </p>
             <p className={`text-xl leading-relaxed mt-4 ${dark ? 'text-slate-400' : 'text-slate-600'}`}>
               We believe in transparency. Here's exactly what cookies we use and why.
@@ -89,7 +89,7 @@ export default function CookiePolicy() {
                       <Cookie className="w-5 h-5 text-white" />
                     </div>
                     <h2 className={`font-display text-xl font-bold ${dark ? 'text-white' : 'text-slate-900'}`}>{name}</h2>
-                    <span className={`ml-auto text-xs font-semibold px-3 py-1 rounded-full border ${required ? 'text-violet-400 bg-violet-500/10 border-violet-500/20' : dark ? 'text-slate-400 bg-white/5 border-white/10' : 'text-slate-500 bg-slate-100 border-slate-200'}`}>
+                    <span className={`ml-auto text-xs font-semibold px-3 py-1 rounded-full border ${required ? 'text-emerald-400 bg-emerald-500/10 border-emerald-500/20' : dark ? 'text-slate-400 bg-white/5 border-white/10' : 'text-slate-500 bg-slate-100 border-slate-200'}`}>
                       {required ? 'Required' : 'Optional'}
                     </span>
                   </div>
@@ -99,7 +99,7 @@ export default function CookiePolicy() {
                     <ul className="space-y-1">
                       {examples.map(ex => (
                         <li key={ex} className={`flex items-center gap-2 text-sm ${dark ? 'text-slate-400' : 'text-slate-600'}`}>
-                          <span className="w-1.5 h-1.5 rounded-full bg-violet-400 flex-shrink-0" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0" />
                           {ex}
                         </li>
                       ))}

@@ -81,21 +81,21 @@ function ChatPreview({ dark }) {
 
 const features = [
   {
-    icon: Calculator,
+    img: '/images/feature_emi_calculator.png',
     title: 'Smart EMI Calculator',
     desc: 'Instantly calculate your monthly payments, total interest, and compare across tenures with AI-powered precision.',
     color: 'from-emerald-500 to-teal-600',
     glow: 'shadow-[0_0_30px_rgba(5,150,105,0.3)]',
   },
   {
-    icon: BarChart2,
+    img: '/images/feature_bank_rates.png',
     title: 'Bank Rate Comparison',
     desc: 'Compare home loan rates from 150+ banks and NBFCs in real-time. Find the best deal for your profile.',
     color: 'from-amber-500 to-orange-500',
     glow: 'shadow-[0_0_30px_rgba(245,158,11,0.3)]',
   },
   {
-    icon: MessageCircle,
+    img: '/images/feature_ai_advisor.png',
     title: 'AI Mortgage Advisor',
     desc: 'Chat with Aria, your personal AI advisor, for guidance on eligibility, tax benefits, and prepayment strategies.',
     color: 'from-blue-500 to-cyan-500',
@@ -195,13 +195,13 @@ export default function Home() {
           </FadeIn>
 
           <StaggerChildren className="grid md:grid-cols-3 gap-8" staggerDelay={0.15}>
-            {features.map(({ icon: Icon, title, desc, color, glow }) => (
+            {features.map(({ img, title, desc, color, glow }) => (
               <StaggerItem key={title}>
-                <div className={`relative group p-8 pb-10 rounded-3xl border transition-all duration-500 hover:-translate-y-2 hover:${glow} ${
+                <div className={`relative group p-6 pb-8 rounded-3xl border transition-all duration-500 hover:-translate-y-2 hover:${glow} overflow-hidden ${
                   dark ? 'bg-[#0a1628] border-white/8 hover:border-emerald-500/30' : 'bg-white border-slate-200 hover:border-emerald-300 shadow-sm hover:shadow-lg'
                 }`}>
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center mb-6 shadow-lg`}>
-                    <Icon className="w-7 h-7 text-white" />
+                  <div className="w-full h-48 rounded-2xl overflow-hidden mb-6 shadow-lg bg-gradient-to-br from-black/20 to-transparent">
+                    <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <h3 className={`font-display text-2xl font-bold mb-3 ${dark ? 'text-white' : 'text-slate-900'}`}>{title}</h3>
                   <p className={`text-sm leading-relaxed ${dark ? 'text-slate-400' : 'text-slate-600'}`}>{desc}</p>

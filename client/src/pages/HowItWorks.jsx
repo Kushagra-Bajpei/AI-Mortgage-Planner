@@ -118,17 +118,17 @@ export default function HowItWorks() {
 
           <StaggerChildren className="grid sm:grid-cols-3 gap-10" staggerDelay={0.15}>
             {[
-              { icon: Clock, stat: 'Speed', value: '< 30s', desc: 'Get a complete mortgage plan in under 30 seconds — faster than any bank branch visit.' },
-              { icon: Shield, stat: 'Data Security', value: 'Bank-Grade', desc: 'Your financial data is encrypted and never shared with any third party.' },
-              { icon: Zap, stat: 'Accuracy', value: '98.5%', desc: 'Our EMI and eligibility calculations match bank outputs with 98.5% accuracy.' },
-            ].map(({ icon: Icon, stat, value, desc }) => (
+              { img: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&q=80', stat: 'Speed', value: '< 30s', desc: 'Get a complete mortgage plan in under 30 seconds — faster than any bank branch visit.' },
+              { img: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80', stat: 'Data Security', value: 'Bank-Grade', desc: 'Your financial data is encrypted and never shared with any third party.' },
+              { img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80', stat: 'Accuracy', value: '98.5%', desc: 'Our EMI and eligibility calculations match bank outputs with 98.5% accuracy.' },
+            ].map(({ img, stat, value, desc }) => (
               <StaggerItem key={stat}>
-                <div className={`group relative p-10 rounded-[2.5rem] border transition-all duration-500 hover:-translate-y-4 overflow-hidden ${
+                <div className={`group relative p-6 pb-8 rounded-[2.5rem] border transition-all duration-500 hover:-translate-y-4 overflow-hidden ${
                   dark ? 'bg-[#0a1628] border-white/5 hover:border-emerald-500/20' : 'bg-white border-slate-200 shadow-xl'
                 }`}>
                   <div className="relative z-10">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-transparent border border-emerald-500/20 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
-                      <Icon className="w-8 h-8 text-emerald-400" />
+                    <div className="w-full h-48 rounded-2xl overflow-hidden mb-8 shadow-lg bg-gradient-to-br from-black/20 to-transparent">
+                      <img src={img} alt={stat} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     </div>
                     <div className={`text-sm font-bold uppercase tracking-wider mb-2 ${dark ? 'text-slate-500' : 'text-slate-400'}`}>{stat}</div>
                     <div className="font-display text-4xl font-black mb-4 gradient-text">{value}</div>
@@ -159,16 +159,18 @@ export default function HowItWorks() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {[
-              { q: 'How accurate are the EMI calculations?', a: 'Our EMI calculations match bank figures with 98.5% accuracy using standard reducing balance formulas. Always verify final numbers with your bank before signing.', color: 'from-emerald-500/10' },
-              { q: 'Is my financial data kept private?', a: 'Absolutely. Your data is encrypted end-to-end and never shared with any bank or third party without your explicit consent.', color: 'from-amber-500/10' },
-              { q: 'Can I compare multiple loan scenarios?', a: 'Yes! You can run unlimited comparisons — different loan amounts, tenures, interest rates — and save your favourite plans to your history.', color: 'from-blue-500/10' },
-              { q: 'Do I need any finance knowledge to use this?', a: 'None at all. Aria explains everything in plain language. Just tell her your budget and goals — she handles all the complex calculations.', color: 'from-purple-500/10' },
-            ].map(({ q, a, color }, idx) => (
+              { q: 'How accurate are the EMI calculations?', a: 'Our EMI calculations match bank figures with 98.5% accuracy using standard reducing balance formulas. Always verify final numbers with your bank before signing.', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80' },
+              { q: 'Is my financial data kept private?', a: 'Absolutely. Your data is encrypted end-to-end and never shared with any bank or third party without your explicit consent.', img: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80' },
+              { q: 'Can I compare multiple loan scenarios?', a: 'Yes! You can run unlimited comparisons — different loan amounts, tenures, interest rates — and save your favourite plans to your history.', img: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80' },
+              { q: 'Do I need any finance knowledge to use this?', a: 'None at all. Aria explains everything in plain language. Just tell her your budget and goals — she handles all the complex calculations.', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80' },
+            ].map(({ q, a, img }, idx) => (
               <FadeIn key={q} delay={idx * 0.1}>
-                <div className={`group relative p-8 rounded-[2rem] border overflow-hidden transition-all duration-300 hover:border-emerald-500/30 backdrop-blur-md h-full ${
-                  dark ? 'bg-[#0a1628]/80 border-white/5' : 'bg-white border-slate-200 shadow-sm'
+                <div className={`group relative p-6 pb-8 rounded-[2.5rem] border overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:border-emerald-500/30 backdrop-blur-md h-full ${
+                  dark ? 'bg-[#0a1628]/80 border-white/5' : 'bg-white border-slate-200 shadow-xl'
                 }`}>
-                  <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${color} blur-3xl rounded-full opacity-50`} />
+                  <div className="w-full h-48 rounded-2xl overflow-hidden mb-6 shadow-lg bg-gradient-to-br from-black/20 to-transparent">
+                    <img src={img} alt={q} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
                   <div className="relative z-10">
                     <h3 className={`text-xl font-bold mb-3 ${dark ? 'text-white' : 'text-slate-900'}`}>{q}</h3>
                     <p className={`text-base leading-relaxed ${dark ? 'text-slate-400' : 'text-slate-600'}`}>{a}</p>

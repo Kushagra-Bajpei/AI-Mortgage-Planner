@@ -14,22 +14,22 @@ export default function Blog() {
       {/* Hero */}
       <section className="pt-32 pb-16 relative overflow-hidden">
         {/* Background Accents */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-violet-600/10 blur-[150px] rounded-full pointer-events-none" />
-        <div className="absolute top-40 right-0 w-[400px] h-[400px] bg-cyan-500/5 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-emerald-600/10 blur-[150px] rounded-full pointer-events-none" />
+        <div className="absolute top-40 right-0 w-[400px] h-[400px] bg-amber-500/5 blur-[100px] rounded-full pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 relative">
           <div className="max-w-3xl">
             <FadeIn>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold text-violet-400 bg-violet-500/10 border border-violet-500/20 mb-6">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 mb-6">
                 <Landmark className="w-3.5 h-3.5" />
-                INSIGHTS & UPDATES
+                INSIGHTS & STRATEGIES
               </span>
               <h1 className={`font-display text-5xl sm:text-7xl font-bold mb-8 leading-tight ${dark ? 'text-white' : 'text-slate-900'}`}>
-                Explorations into the <br />
-                <span className="gradient-text">Subconscious mind</span>
+                Master your <br />
+                <span className="gradient-text">Home Journey</span>
               </h1>
               <p className={`text-xl leading-relaxed max-w-2xl ${dark ? 'text-slate-400' : 'text-slate-600'}`}>
-                Discover the latest in AI dream analysis, digital creativity, and the psychology behind your night-time adventures.
+                Discover the latest in AI-powered mortgage planning, interest rate trends, and financial strategies for your dream home.
               </p>
             </FadeIn>
           </div>
@@ -40,7 +40,7 @@ export default function Blog() {
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
-            <div className={`group relative rounded-[2.5rem] overflow-hidden border transition-all duration-700 hover:border-violet-500/40 hover:shadow-[0_0_80px_rgba(124,58,237,0.2)] ${dark ? 'bg-[#0a0a0f] border-white/10' : 'bg-white border-slate-200 shadow-sm'}`}>
+            <div className={`group relative rounded-[2.5rem] overflow-hidden border transition-all duration-700 hover:border-emerald-500/40 hover:shadow-[0_0_80px_rgba(5,150,105,0.2)] ${dark ? 'bg-[#0a0a0f] border-white/10' : 'bg-white border-slate-200 shadow-sm'}`}>
               <div className="flex flex-col lg:flex-row min-h-[500px]">
                 {/* Image Section */}
                 <div className="lg:w-1/2 relative overflow-hidden h-[300px] lg:h-auto">
@@ -68,7 +68,7 @@ export default function Blog() {
                   </div>
                   
                   <Link to={`/blog/${featured.slug}`} className="block group/title">
-                    <h2 className={`font-display text-3xl lg:text-5xl font-bold mb-6 transition-colors group-hover/title:text-violet-400 leading-tight ${dark ? 'text-white' : 'text-slate-900'}`}>
+                    <h2 className={`font-display text-3xl lg:text-5xl font-bold mb-6 transition-colors group-hover/title:text-emerald-400 leading-tight ${dark ? 'text-white' : 'text-slate-900'}`}>
                       {featured.title}
                     </h2>
                   </Link>
@@ -79,7 +79,7 @@ export default function Blog() {
                   
                   <div className="flex flex-wrap items-center gap-6">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 flex items-center justify-center border-2 border-white/10 shadow-lg">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-amber-400 flex items-center justify-center border-2 border-white/10 shadow-lg">
                         <User className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -97,7 +97,7 @@ export default function Blog() {
 
                     <Link 
                       to={`/blog/${featured.slug}`}
-                      className="ml-auto group/btn flex items-center gap-2 text-violet-400 font-bold hover:text-violet-300 transition-colors"
+                      className="ml-auto group/btn flex items-center gap-2 text-emerald-400 font-bold hover:text-emerald-300 transition-colors"
                     >
                       Read Article <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
                     </Link>
@@ -124,7 +124,7 @@ export default function Blog() {
               <StaggerItem key={title}>
                 <Link 
                   to={`/blog/${slug}`} 
-                  className={`group flex flex-col h-full rounded-3xl border overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-violet-500/30 hover:shadow-2xl ${dark ? 'bg-[#12121a] border-white/8 hover:shadow-violet-500/5' : 'bg-white border-slate-200 shadow-sm hover:shadow-xl'}`}
+                  className={`group flex flex-col h-full rounded-3xl border overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-emerald-500/30 hover:shadow-2xl ${dark ? 'bg-[#12121a] border-white/8 hover:shadow-emerald-500/5' : 'bg-white border-slate-200 shadow-sm hover:shadow-xl'}`}
                 >
                   <div className="relative h-56 overflow-hidden">
                     <img 
@@ -141,7 +141,7 @@ export default function Blog() {
                   </div>
 
                   <div className="p-8 flex flex-col flex-1">
-                    <h4 className={`font-display text-xl font-bold mb-4 group-hover:text-violet-400 transition-colors line-clamp-2 ${dark ? 'text-white' : 'text-slate-900'}`}>
+                    <h4 className={`font-display text-xl font-bold mb-4 group-hover:text-emerald-400 transition-colors line-clamp-2 ${dark ? 'text-white' : 'text-slate-900'}`}>
                       {title}
                     </h4>
                     <p className={`text-sm leading-relaxed mb-8 line-clamp-3 ${dark ? 'text-slate-400' : 'text-slate-600'}`}>
@@ -172,22 +172,22 @@ export default function Blog() {
       <section className="pb-24 px-4">
         <div className="max-w-5xl mx-auto">
           <FadeIn>
-            <div className={`relative rounded-[3rem] overflow-hidden p-8 sm:p-16 text-center border ${dark ? 'bg-[#0a0a0f] border-white/10 shadow-[0_0_60px_rgba(124,58,237,0.1)]' : 'bg-slate-900 border-slate-800'}`}>
+            <div className={`relative rounded-[3rem] overflow-hidden p-8 sm:p-16 text-center border ${dark ? 'bg-[#0a0a0f] border-white/10 shadow-[0_0_60px_rgba(5,150,105,0.1)]' : 'bg-slate-900 border-slate-800'}`}>
               {/* Background Accents */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-violet-600/20 blur-[100px] -mr-32 -mt-32" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/20 blur-[100px] -ml-32 -mb-32" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-600/20 blur-[100px] -mr-32 -mt-32" />
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/20 blur-[100px] -ml-32 -mb-32" />
               
               <div className="relative z-10 max-w-2xl mx-auto">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center mx-auto mb-8 shadow-xl rotate-3">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-600 to-amber-500 flex items-center justify-center mx-auto mb-8 shadow-xl rotate-3">
                   <Mail className="w-8 h-8 text-white" />
                 </div>
                 
                 <h2 className="font-display text-4xl sm:text-5xl font-bold text-white mb-6">
-                  Join the <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-300">Dreamers List</span>
+                  Join the <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-amber-300">Mortgage Insider</span>
                 </h2>
                 
                 <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-                  Get weekly insights on dream psychology, AI art techniques, and early access to new QuickRaina features. No spam, just pure inspiration.
+                  Get weekly insights on home loan strategies, interest rate trends, and early access to new MortgageAI features. No spam, just value.
                 </p>
                 
                 <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
@@ -195,16 +195,16 @@ export default function Blog() {
                     <input 
                       type="email" 
                       placeholder="your@email.com"
-                      className={`w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-violet-500 transition-all`}
+                      className={`w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-emerald-500 transition-all`}
                     />
                   </div>
-                  <button className="px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-bold hover:shadow-[0_0_30px_rgba(124,58,237,0.4)] hover:scale-105 transition-all duration-300">
+                  <button className="px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-amber-500 text-white font-bold hover:shadow-[0_0_30px_rgba(5,150,105,0.4)] hover:scale-105 transition-all duration-300">
                     Subscribe Now
                   </button>
                 </form>
                 
                 <p className="text-slate-500 text-xs mt-6">
-                  By subscribing, you agree to our <Link to="/privacy-policy" className="text-violet-400 hover:underline">Privacy Policy</Link>
+                  By subscribing, you agree to our <Link to="/privacy-policy" className="text-emerald-400 hover:underline">Privacy Policy</Link>
                 </p>
               </div>
             </div>

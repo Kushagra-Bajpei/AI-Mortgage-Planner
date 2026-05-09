@@ -40,7 +40,7 @@ export default function Login() {
     if (result.ok) {
       navigate('/chat');
     } else {
-      setApiError(result.error || 'Login failed. Try demo@quickraina.ai / demo123');
+      setApiError(result.error || 'Login failed. Try demo@mortgageai.com / demo123');
     }
   };
 
@@ -75,7 +75,7 @@ export default function Login() {
 
         <h1 className={`font-display text-3xl font-bold mb-2 ${dark ? 'text-white' : 'text-slate-900'}`}>Welcome back</h1>
         <p className={`text-sm mb-8 ${dark ? 'text-slate-400' : 'text-slate-600'}`}>
-          Sign in to continue exploring your dreams.
+          Sign in to continue your home loan planning.
         </p>
 
         {/* Demo hint */}

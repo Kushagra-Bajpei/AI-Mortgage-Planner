@@ -28,7 +28,7 @@ export default function BlogPost() {
           <div className="text-center">
             <h1 className={`text-4xl font-bold mb-4 ${dark ? 'text-white' : 'text-slate-900'}`}>Post not found</h1>
             <p className={`${dark ? 'text-slate-400' : 'text-slate-600'} mb-8`}>Redirecting you back to the blog...</p>
-            <Link to="/blog" className="text-violet-400 hover:underline">Click here if not redirected</Link>
+            <Link to="/blog" className="text-emerald-400 hover:underline">Click here if not redirected</Link>
           </div>
         </div>
       </PublicLayout>
@@ -39,7 +39,7 @@ export default function BlogPost() {
     <PublicLayout>
       <article className="pt-32 pb-24 relative overflow-hidden">
         {/* Background Accents */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-violet-600/5 blur-[150px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-emerald-600/5 blur-[150px] rounded-full pointer-events-none" />
         
         <div className="max-w-4xl mx-auto px-4 relative">
           {/* Back Button */}
@@ -64,7 +64,7 @@ export default function BlogPost() {
               
               <div className="flex flex-wrap items-center gap-6 pb-8 border-b border-white/10">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 flex items-center justify-center border-2 border-white/10 shadow-lg">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-amber-400 flex items-center justify-center border-2 border-white/10 shadow-lg">
                     <User className="w-5 h-5 text-white" />
                   </div>
                   <div>
@@ -101,9 +101,9 @@ export default function BlogPost() {
           {/* Content */}
           <FadeIn delay={0.3}>
             <div 
-              className={`prose prose-lg max-w-none ${dark ? 'prose-invert prose-violet' : 'prose-slate'} 
+              className={`prose prose-lg max-w-none ${dark ? 'prose-invert prose-emerald' : 'prose-slate'} 
               prose-headings:font-display prose-headings:font-bold prose-p:leading-relaxed prose-p:text-lg
-              prose-blockquote:border-violet-500 prose-blockquote:bg-violet-500/5 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-xl prose-blockquote:not-italic prose-blockquote:font-medium
+              prose-blockquote:border-emerald-500 prose-blockquote:bg-emerald-500/5 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-xl prose-blockquote:not-italic prose-blockquote:font-medium
               `}
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
@@ -112,15 +112,15 @@ export default function BlogPost() {
           {/* Footer / CTA */}
           <FadeIn delay={0.4} className="mt-20">
             <div className={`p-8 sm:p-12 rounded-[2rem] border text-center relative overflow-hidden ${dark ? 'bg-white/5 border-white/10' : 'bg-slate-50 border-slate-200'}`}>
-               <div className="absolute top-0 right-0 w-32 h-32 bg-violet-500/10 blur-3xl rounded-full" />
-               <div className="absolute bottom-0 left-0 w-32 h-32 bg-cyan-500/10 blur-3xl rounded-full" />
+               <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-3xl rounded-full" />
+               <div className="absolute bottom-0 left-0 w-32 h-32 bg-amber-500/10 blur-3xl rounded-full" />
                
-               <Landmark className="w-10 h-10 text-violet-400 mx-auto mb-6" />
-               <h3 className={`text-2xl font-bold mb-4 ${dark ? 'text-white' : 'text-slate-900'}`}>Want to visualize your own dreams?</h3>
-               <p className={`mb-8 ${dark ? 'text-slate-400' : 'text-slate-600'}`}>Join thousands of others who are using QuickRaina to explore their subconscious.</p>
+               <Landmark className="w-10 h-10 text-emerald-400 mx-auto mb-6" />
+               <h3 className={`text-2xl font-bold mb-4 ${dark ? 'text-white' : 'text-slate-900'}`}>Want to plan your own home loan?</h3>
+               <p className={`mb-8 ${dark ? 'text-slate-400' : 'text-slate-600'}`}>Join thousands of others who are using MortgageAI to secure their future.</p>
                <Link 
                 to="/signup" 
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-bold hover:shadow-lg hover:shadow-violet-600/20 hover:scale-105 transition-all"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-amber-500 text-white font-bold hover:shadow-lg hover:shadow-emerald-600/20 hover:scale-105 transition-all"
                >
                  Get Started for Free <ArrowRight className="w-5 h-5" />
                </Link>
