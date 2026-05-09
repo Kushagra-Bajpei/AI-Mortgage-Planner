@@ -12,9 +12,9 @@
 
 ## 🖼️ Feature Showcases
 
-| AI Mortgage Advisor | Bank Rate Comparison | EMI Calculator |
+| Home Page | AI Chat Interface | Authentication |
 | :---: | :---: | :---: |
-| ![AI Advisor](./client/public/images/feature_ai_advisor.png) | ![Bank Rates](./client/public/images/feature_bank_rates.png) | ![EMI Calculator](./client/public/images/feature_emi_calculator.png) |
+| ![Home Page](./assets/Home.png) | ![Chat Interface](./assets/Chat.png) | ![Auth Page](./assets/Auth.png) |
 
 ---
 
