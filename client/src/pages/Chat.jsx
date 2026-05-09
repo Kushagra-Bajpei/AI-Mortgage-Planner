@@ -584,14 +584,8 @@ const Chat = () => {
                  <option value="Punjabi">Punjabi</option>
                </select>
              </div>
-             <div className={`p-2 rounded-lg ${dark ? 'hover:bg-white/5 text-slate-400' : 'hover:bg-slate-100 text-slate-500'}`}>
-               <User className="w-5 h-5" />
-             </div>
-             <div className={`p-2 rounded-lg ${dark ? 'hover:bg-white/5 text-slate-400' : 'hover:bg-slate-100 text-slate-500'}`}>
-               <Sun className="w-5 h-5" />
-             </div>
-          </div>
-        </header>
+           </div>
+         </header>
 
         {/* Messages */}
         <main className="flex-1 overflow-y-auto px-4 py-8 custom-scrollbar">
