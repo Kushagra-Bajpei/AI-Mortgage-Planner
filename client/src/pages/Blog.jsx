@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Clock, User, Landmark, Mail } from 'lucide-react';
+import { ArrowRight, Clock, User, Landmark } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
 import { FadeIn, StaggerChildren, StaggerItem } from '../components/AnimationWrappers';
 import PublicLayout from '../layouts/PublicLayout';
@@ -47,6 +47,10 @@ export default function Blog() {
                   <img 
                     src={featured.image} 
                     alt={featured.title}
+                    onError={(e) => {
+                      e.target.src = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200';
+                      e.target.onerror = null;
+                    }}
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
                   <div className={`absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r ${dark ? 'from-[#0a0a0f] via-transparent' : 'from-slate-900/40 via-transparent'} to-transparent`} />
@@ -130,6 +134,10 @@ export default function Blog() {
                     <img 
                       src={image} 
                       alt={title} 
+                      onError={(e) => {
+                        e.target.src = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200';
+                        e.target.onerror = null;
+                      }}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#12121a]/80 via-transparent to-transparent opacity-60" />
@@ -168,49 +176,7 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* Newsletter Section */}
-      <section className="pb-24 px-4">
-        <div className="max-w-5xl mx-auto">
-          <FadeIn>
-            <div className={`relative rounded-[3rem] overflow-hidden p-8 sm:p-16 text-center border ${dark ? 'bg-[#0a0a0f] border-white/10 shadow-[0_0_60px_rgba(5,150,105,0.1)]' : 'bg-slate-900 border-slate-800'}`}>
-              {/* Background Accents */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-600/20 blur-[100px] -mr-32 -mt-32" />
-              <div className="absolute bottom-0 left-0 w-64 h-64 bg-amber-500/20 blur-[100px] -ml-32 -mb-32" />
-              
-              <div className="relative z-10 max-w-2xl mx-auto">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-600 to-amber-500 flex items-center justify-center mx-auto mb-8 shadow-xl rotate-3">
-                  <Mail className="w-8 h-8 text-white" />
-                </div>
-                
-                <h2 className="font-display text-4xl sm:text-5xl font-bold text-white mb-6">
-                  Join the <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-amber-300">Mortgage Insider</span>
-                </h2>
-                
-                <p className="text-slate-400 text-lg mb-10 leading-relaxed">
-                  Get weekly insights on home loan strategies, interest rate trends, and early access to new MortgageAI features. No spam, just value.
-                </p>
-                
-                <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
-                  <div className="flex-1 relative">
-                    <input 
-                      type="email" 
-                      placeholder="your@email.com"
-                      className={`w-full px-6 py-4 rounded-2xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-emerald-500 transition-all`}
-                    />
-                  </div>
-                  <button className="px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-amber-500 text-white font-bold hover:shadow-[0_0_30px_rgba(5,150,105,0.4)] hover:scale-105 transition-all duration-300">
-                    Subscribe Now
-                  </button>
-                </form>
-                
-                <p className="text-slate-500 text-xs mt-6">
-                  By subscribing, you agree to our <Link to="/privacy-policy" className="text-emerald-400 hover:underline">Privacy Policy</Link>
-                </p>
-              </div>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+
     </PublicLayout>
   );
 }

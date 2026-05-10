@@ -92,6 +92,10 @@ export default function BlogPost() {
               <img 
                 src={post.image} 
                 alt={post.title} 
+                onError={(e) => {
+                  e.target.src = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200';
+                  e.target.onerror = null;
+                }}
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
