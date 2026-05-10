@@ -1,3 +1,3 @@
 export const API_BASE_URL = import.meta.env.PROD 
-  ? 'https://api.mortgageai.in' 
+  ? 'https://ai-mortgage-planner.onrender.com' 
   : ''; 
